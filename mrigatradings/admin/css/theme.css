@@ -1,0 +1,152 @@
+.topic-font{
+	font-size: 18px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	line-height:24px;
+}
+.topic-font-white{
+	font-size: 18px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #ffffff;
+	text-decoration: none;
+	line-height:24px;
+}
+.sub-topic{
+	font-size: 20px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	line-height:24px;
+	text-transform: uppercase;
+}
+.txt-font{
+	font-size: 12px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	line-height:24px;
+}
+.body-text-theme {
+	font-size: 12px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+}
+.body-text-theme a{
+	color: #666666;
+	text-decoration: underline;
+}
+.body-text-theme a:hover{
+	color: #666666;
+	text-decoration: none;
+}
+.brief-text-theme {
+	font-size: 12px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+	list-style-image:url(../images/arrow.gif)
+}
+.brief-text-theme a{
+	color: #e65210;
+	text-decoration: underline;
+}
+.brief-text-theme a:hover{
+	color: #666666;
+	text-decoration: none;
+}
+.heading{
+	font-size: 14px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #006633;
+	text-decoration: none;
+}
+.theme-left{
+	font-size: 12px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+.img-txt{
+	font-size: 9px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	padding:5px;
+}
+.theme2-heading{
+	font-size: 18px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #566800;
+	text-decoration: none;
+}
+.theme4-heading{
+	font-size: 18px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #993300;
+	text-decoration: none;
+}
+.body-text-theme1 {
+	font-size: 10px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: none;
+}
+.body-text-theme1 a{
+	color: #666666;
+	text-decoration: underline;
+}
+.body-text-theme1 a:hover{
+	color: #666666;
+	text-decoration: none;
+}
+.theme4-white-txt{
+	font-size: 11px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+.theme4-txt-font{
+	font-size: 14px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+	line-height:24px;
+}
+.theme5-heading{
+	font-size: 14px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+.body-text-theme5 {
+	font-size: 11px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #ffffff;
+	text-decoration: none;
+}
+.body-text-theme5 a{
+	color: #ffffff;
+	text-decoration: underline;
+}
+.body-text-theme5 a:hover{
+	color: #ffffff;
+	text-decoration: none;
+}

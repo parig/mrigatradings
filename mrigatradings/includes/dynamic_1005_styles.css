@@ -1,0 +1,106 @@
+
+
+ 
+a{text-decoration:none;cursor:pointer;outline:none;}
+a:focus{outline:thin dotted;}
+a:active,a:hover{outline:0;}
+a[href^="mailto:"],a[href^="ymsgr:"]{word-wrap:break-word;word-break:break-all;}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}
+address{font-style:normal;}
+
+form{display:inline;} 
+ 
+.js .no-js{display:none;} /* hide messages if js enabled through modernizr */
+
+ol,ul{list-style:none;}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+sup{top:-0.5em;}
+sub{bottom:-0.25em;}
+
+ 
+
+
+/***** FORM STYLES *****/
+button,input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;overflow:visible;line-height:inherit;}
+button[disabled],input[disabled]{cursor:default;}
+input[type=text],input[type=search]{outline:0;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;}
+
+.input,select,textarea{background-color:#fafafa;border:1px solid #ccc;padding:3px;outline:none;}
+.input,button,select,textarea{font-family:inherit;font-size:inherit;color:#333;}
+.input:focus,select:focus,textarea:focus{border-color:#bbb;}
+textarea{overflow:auto;}
+button,.button{padding:5px 10px;}
+.star{color:#c30;font-family:Verdana,Geneva,sans-serif;font-size:.9em;}
+
+
+/***** LIST STYLES *****/
+ol.default,ul.default{margin-left:20px;}
+ol.default{list-style:decimal;}
+ul.default{list-style:disc;}
+ol.decimal{list-style:decimal;}
+ol.loweralpha{list-style:lower-alpha;}
+ol.lowerroman{list-style:lower-roman;}
+ol.upperalpha{list-style:upper-alpha;}
+ol.upperroman{list-style:upper-roman;}
+ul.circle{list-style:circle;}
+ul.square{list-style:square;}
+
+
+/***** ALIGNMENT STYLES *****/
+.tal,.al{text-align:left;}
+.tar,.ar{text-align:right;}
+.tac,.ac{text-align:center;}
+.taj,.aj{text-align:justify;}
+.vat,.ac-vat > *,.acac-vat > * > *{vertical-align:top;}
+.vam,.ac-vam > *,.acac-vam > * > *{vertical-align:middle;}
+.vab,.ac-vab > *,.acac-vab > * > *{vertical-align:bottom;}
+.vasub{vertical-align:sub;}
+.vasup{vertical-align:super;}
+.fl,.ac-fl > *,.acac-fl > * > *{float:left;*display:inline-block;}
+.fr,.ac-fr > *,.acac-fr > * > *{float:right;*display:inline-block;}
+.fo,.ac-fo > *,.acac-fo > * > *{*zoom:1;} /*IE < 8*/
+.fo:before,.fo:after,.ac-fo > *:before,.ac-fo > *:after,.acac-fo > * > *:before,.acac-fo > * > *:after{content:"";display:table;}
+.fo:after,.ac-fo > *:after,.acac-fo > * > *:after{clear:both;}
+.cb,.ac-cb > *{clear:both;}
+.cl,.ac-cl > *{clear:left;}
+.cr,.ac-cr > *{clear:right;}
+
+
+ 
+
+
+/***** DISPLAY & POSITIONS STYLES *****/
+.db,.ac-db > *,.acac-db > * > *{display:block;}
+.di,.ac-di > *,.acac-di > * > *{display:inline;}
+.dib,.ac-dib > *,.acac-dib > * > *{display:inline-block;*display:inline;*zoom:1;}
+.dn,.ac-dn > *,.acac-dn > * > *{display:none;}
+.dt,.ac-dt > *,.acac-dt > * > *{display:table;}
+.dtc,.ac-dtc > *,.acac-dtc > * > *{display:table-cell;}
+.dtr,.ac-dtr > *,.acac-dtr > * > *{display:table-row;}
+
+
+
+
+ 
+
+ 
+
+
+/***** FORM CLASSESS *****/
+form.inputs-p5px .input,form.inputs-p5px select,form.inputs-p5px textarea{padding:5px;}
+form.inputs-p7px .input,form.inputs-p7px select,form.inputs-p7px textarea{padding:7px;}
+form.inputs-p10px .input,form.inputs-p10px select,form.inputs-p10px textarea{padding:10px;}
+form.inputs-br3px .input,form.inputs-br3px select,form.inputs-br3px textarea{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+form.inputs-br5px .input,form.inputs-br5px select,form.inputs-br5px textarea{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+form.inputs-br7px .input,form.inputs-br7px select,form.inputs-br7px textarea{-webkit-border-radius:7px;-moz-border-radius:7px;border-radius:7px;}
+form.inputs-br10px .input,form.inputs-br10px select,form.inputs-br10px textarea{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;}
+form.inputs-error-border input.error, form.inputs-error-border select.error, form.inputs-error-border textarea.error {border-color:#c00 !important;}
+
+
+form label.error{cursor:default;color:#c00;}
+form label.error,form.inline-errors .block-errors label.error{/*display:block;*/margin:5px 0 0 10px;}
+form.inline-errors label.error,form .inline-errors label.error{display:inline-block;margin:0 0 0 7px;}
+
+
+ 

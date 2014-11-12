@@ -1,0 +1,192 @@
+<?php
+// Turn off all error reporting
+error_reporting(0);
+date_default_timezone_set ("Asia/Calcutta"); 
+$script_tz = date_default_timezone_get();
+if (strcmp($script_tz, ini_get('date.timezone'))){
+    //echo 'Script timezone differs from ini-set timezone.';
+} else {
+    //echo 'Script timezone and ini-set timezone match.';
+}
+
+		
+
+require_once 'Classes/PHPExcel/IOFactory.php';
+
+if(isset($_REQUEST['frmsubmit'])){
+	
+		$lpday=mktime(0, 0, 0, date("m"), date("d"),   date("Y"));
+		$rs1 = mysql_query("SELECT * FROM mk_announcement ") or die(mysql_error());		
+		 
+		while($rs=mysql_fetch_array($rs1))
+		{
+			$ltrs.=$rs['notallow_day'].",";
+		}
+		$ltrs = substr($ltrs, 0, -1);
+		 
+		$notallow_day=explode(",",$ltrs);
+		 
+		
+			for($j=0;$j<count($notallow_day);$j++)
+			{
+			  
+				//echo $notallow_day[$j]."-->".$lpday."<br>";
+				if($notallow_day[$j]==$lpday)
+				{
+					$inst=1;
+				}
+				
+				
+			} 
+			//echo $inst."text";
+	
+	if($inst==1)
+	{
+		$msg="<font style='color:red;'><strong>Now you can't import the client data, due to Announcement/Newsletter(s) currently sheduled!</strong></font>";
+	}
+	else
+	{
+	
+ 		$temp_name1 = $_FILES['gfiles']['tmp_name'];
+		$namess = $_FILES['gfiles']['name'];
+
+$objPHPExcel = PHPExcel_IOFactory::load($temp_name1);
+foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
+    $worksheetTitle     = $worksheet->getTitle();
+    $highestRow         = $worksheet->getHighestRow(); // e.g. 10
+    $highestColumn      = $worksheet->getHighestColumn(); // e.g 'F'
+    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
+    $nrColumns = ord($highestColumn) - 64;
+    /*echo "<br>The worksheet ".$worksheetTitle." has ";
+    echo $nrColumns . ' columns (A-' . $highestColumn . ') ';
+    echo ' and ' . $highestRow . ' row.';
+    echo '<br>Data: <table border="1"><tr>';
+    for ($row = 2; $row <= $highestRow; ++ $row) {
+        echo '<tr>';
+        for ($col = 0; $col < $highestColumnIndex; ++ $col) {
+            $cell = $worksheet->getCellByColumnAndRow($col, $row);
+            $val = $cell->getValue();
+            $dataType = PHPExcel_Cell_DataType::dataTypeForValue($val);
+            echo '<td>' . $val . '</td>';
+			 
+        }
+        echo '</tr>';
+    }
+    echo '</table>';*/
+	
+	//if($highestRow<4)
+	//{  
+	 
+			for ($row = 2; $row <= $highestRow; ++ $row) {
+				
+				$val1='';
+				for ($col = 0; $col < $highestColumnIndex; ++ $col) {
+					$cell = $worksheet->getCellByColumnAndRow($col, $row);
+					$val = $cell->getValue();
+				   // $dataType = PHPExcel_Cell_DataType::dataTypeForValue($val);
+					
+					$val1.=	"'".$val."',";		
+				}
+				$val1=rtrim($val1, ",");
+				$rps=explode(",",$val1);
+				
+				//echo "SELECT A.*, B.* FROM  mk_users A, mk_addemail B  where A.useremail=B.emailid"; 
+				 
+				$dupchk = mysql_query("select * from mk_users where username=".$rps[0]." OR companyname=".$rps[1]."");
+				echo "select * from mk_users where username=".$rps[0]." OR companyname=".$rps[1]."<br>";
+				if(mysql_num_rows($dupchk)==0) 
+				{
+					 
+					echo $row."<br>";
+					echo $rps[5].'-><br>';
+					if($rps[5]=="''" || $rps[5]=="'p'")
+					 {
+						 
+						 if($rps[6]=="'0'") { $testdata=0; } else { $testdata=1; }
+						 
+				 echo  $rsq= "insert into mk_users(`username`,`companyname`,`caddress`,`mobileno`,`contactperson`) VALUES (".$rps[0].",".$rps[1].",".$rps[2].",".$rps[3].",".$rps[4].")"."<br>";
+				 echo $row."<br>";
+					  /* mysql_query($rsq) or die(mysql_error());
+					  $getid=mysql_insert_id();
+					 
+					   mysql_query("update mk_users set userpass='".md5('Pass123@')."',useremail=".$rps[0].", level_id='4', userstatus='1',testdata='".$testdata."' where user_id='".$getid."'")or die(mysql_error()); */
+					 }
+				   
+				   $msg1="<font color='red'>Sucessfully Updated...<br></font>";
+				}
+				else
+				{
+				/*	$dupchk = mysql_query("select * from mk_users where   companyname=".$rps[1]."");
+					$sd=mysql_fetch_array($dupchk) or dir(mysql_error());
+					$rid=$sd['user_id'];
+					 if($rps[6]=="'0'") { $testdata=0; } else { $testdata=1; }
+					 
+					$dupchk2 = mysql_query("SELECT A.*, B.* FROM  mk_users A, mk_addemail B  where A.useremail=".$rps[0]." or B.emailid=".$rps[0]."");
+					if(mysql_num_rows($dupchk2)==0) 
+					{
+						 $rsq= "insert into mk_addemail(`clientid`,`emailid`,`testdata`) VALUES ('".$rid."',".$rps[0].",'".$testdata."')";
+					   mysql_query($rsq) or die(mysql_error()); 
+					}
+					else
+					{
+					 $msg.= $rps[0]. " This username/company is already exist<br>";
+					}*/
+				}
+			
+			}
+	
+	/*}else
+	{
+		$msg1="<font color='red'>The client records shound be not more then 249</font>";
+	}*/
+	
+}
+	}
+}
+?>
+<form action="" method="post" enctype="multipart/form-data" name="upfrm">
+  <table width="93%"  border="0" align="center" cellpadding="3" cellspacing="0" bordercolor="#EAEAEA" class="page-head-black" >
+          <tr>
+            <td width="5%" align="left"><strong><img src="otherimages/user.png" width="48" height="48"></strong></td>
+            <td width="14%" align="left"><strong>Import Client</strong></td>
+            <td align="right"><?php //include 'regilog.php';?>
+            </td>
+    </tr>
+  </table>
+
+      <br>
+      <table width="93%"  border="0" align="center" cellpadding="3" cellspacing="0" class="tbtxt"  >
+        <tr >
+          <td colspan="2" align="left" class="ArialTxtBlack" ><table width="15%"  border="0" align="right" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="52%"><div align="right"><a href="index.php?pagesv=mng_users"><img src="otherimages/cancel_f2.png" width="32" height="32" border="0"></a></div></td>
+            </tr>
+            <tr>
+              <td><div align="right"><strong>Cancel</strong></div></td>
+            </tr>
+          </table></td>
+        </tr>
+        <tr >
+          <td colspan="2" align="left" class="ArialTxtBlack" ><strong>Upload</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="left"  height="1px;"  bgcolor="#205594" ></td>
+        </tr>
+        <tr valign="top">
+          <td width="47%" align="left"  >Upload excelsheet * </td>
+          <td width="53%" align="left"><input name="gfiles" type="file" />
+            [ <a href="gread.xls" target="_blank">Download Sample excelsheet</a> ]</td>
+        </tr>
+        <tr valign="top">
+          <td align="left"  >&nbsp;</td>
+          <td align="left"><input name="frmsubmit" type="submit" value="Submit" /></td>
+        </tr>
+
+        <tr align="center">
+          <td colspan="2"><span class="stylered">
+          <?=$msg1 ?>
+          <?=$msg ?>
+       </span></td>
+        </tr>
+  </table>
+</form>
