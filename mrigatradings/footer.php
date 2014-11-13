@@ -1,4 +1,4 @@
-<footer id="footer"><!--Footer TEST OK OK-->
+<footer id="footer"><!--Footer-->
 		
 		
 		<div class="footer-widget">

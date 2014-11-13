@@ -2,9 +2,9 @@
 
 	$server_name ="localhost";
 	 
-	$db_name ="mrigatra_db";
-	$db_uname="mrigatra_db";	
-	$db_pass="Mn{{IAQ}8^]O";	
+	$db_name ="mrigatradings";
+	$db_uname="root";	
+	$db_pass="";	
 	$db_prefix="mk_";
 	define("CONSTANT", "mk_");
 	
