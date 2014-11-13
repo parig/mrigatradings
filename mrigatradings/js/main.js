@@ -36,15 +36,14 @@ $("img").mousedown(function(){
  
  
  
-    $(document).bind("contextmenu",function(e){
+/*    $(document).bind("contextmenu",function(e){
         return false;
     });
 	
 $(document).bind('keydown', function(e) {
   if(e.ctrlKey && (e.which == 83)) {
     e.preventDefault();
-   // alert('Ctrl+S');
     return false;
   }
-});	
+});	*/
   
